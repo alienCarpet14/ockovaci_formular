@@ -1,0 +1,113 @@
+<!-- <app-name-editor></app-name-editor> -->
+<!-- <mat-slider min="1" max="100" step="1" value="50"></mat-slider> -->
+
+
+<p>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Registrácia na očkovanie</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
+
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Meno</mat-label>
+    <input matInput>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Priezvisko</mat-label>
+    <input matInput>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Rodné čislo</mat-label>
+    <input matInput>
+    <mat-hint>bez lomky</mat-hint>
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select>
+      <mat-option value="one">Muž</mat-option>
+      <mat-option value="two">Žena</mat-option>
+    </mat-select>
+  </mat-form-field>
+</p>
+
+<!-- <mat-form-field appearance="fill">
+  <mat-label>Dátum narodenia</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field> 
+-->
+
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Ulica</mat-label>
+    <input matInput>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Popisné čislo</mat-label>
+    <input matInput>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>PSČ</mat-label>
+    <input matInput>
+    <mat-hint>PSČ zadajte bez medzery (formát XXXXX)</mat-hint>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Obec</mat-label>
+    <input matInput>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select>
+      <mat-option value="one">VšZP</mat-option>
+      <mat-option value="two">Dôvera</mat-option>
+      <mat-option value="three">Union</mat-option>
+      <mat-option value="four">EÚ poistenec s registrovaným pobytovým formulárom</mat-option>
+      <mat-option value="five">Iné</mat-option>
+    </mat-select>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Telefón</mat-label>
+    <input matInput>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Mail</mat-label>
+    <input matInput>
+  </mat-form-field>
+</p>
+<p>
+  <button mat-raised-button color="primary">Odoslať</button>
+</p>
