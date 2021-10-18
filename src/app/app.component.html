@@ -5,87 +5,175 @@
 <p>
   <mat-toolbar color="primary">
     <mat-toolbar-row>
+      <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button> -->
       <span>Registrácia na očkovanie</span>
       <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
     </mat-toolbar-row>
   </mat-toolbar>
 </p>
 
-<p>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<div>
   <mat-form-field appearance="fill">
     <mat-label>Meno</mat-label>
-    <input matInput>
+    <input matInput formControlName="name">
   </mat-form-field>
-</p>
+  <div *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)"
+  class="alert alert-danger">
+    <div *ngIf="f.name.errors?.required">
+      Name is required.
+    </div>
+    <div *ngIf="f.name.errors?.minlength">
+      Name must be at least 2 characters long.
+    </div>
+    <!-- <div *ngIf="name.errors?.forbiddenName">
+      Name cannot be Bob.
+    </div> -->
+  </div>
+</div>
 
-<p>
+<div>
   <mat-form-field appearance="fill">
     <mat-label>Priezvisko</mat-label>
-    <input matInput>
+    <input matInput formControlName="surname">
+    <!-- <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+      <div *ngIf="f.surname.errors.minLength(3)">musi byt dlhsie ako 2</div>
+  </div> -->
   </mat-form-field>
-</p>
+  <div *ngIf="f.surname.invalid && (f.surname.dirty || f.surname.touched)"
+  class="alert alert-danger">
+    <div *ngIf="f.surname.errors?.required">
+      surname is required.
+    </div>
+    <div *ngIf="f.surname.errors?.minlength">
+      surname must be at least 2 characters long.
+    </div>
+    <!-- <div *ngIf="name.errors?.forbiddenName">
+      Name cannot be Bob.
+    </div> -->
+  </div>
+</div>
 
-<p>
+<div>
   <mat-form-field appearance="fill">
     <mat-label>Rodné čislo</mat-label>
-    <input matInput>
-    <mat-hint>bez lomky</mat-hint>
+    <input  matInput formControlName="id">
   </mat-form-field>
-</p>
-<p>
-  <mat-form-field appearance="fill">
-    <mat-label>Select</mat-label>
-    <mat-select>
-      <mat-option value="one">Muž</mat-option>
-      <mat-option value="two">Žena</mat-option>
-    </mat-select>
-  </mat-form-field>
-</p>
+
+  <div *ngIf="f.id.invalid && (f.id.dirty || f.id.touched)"
+  class="alert alert-danger">
+    <div *ngIf="f.id.errors?.required">
+     *
+    </div>
+    <div *ngIf="f.id.errors?.minlength">
+      zadajte bez lomky, rodné číslo musí byť presne 10 znakov dlhé
+    </div>
+    <div *ngIf="f.id.errors?.maxlength">
+      zadajte bez lomky, rodné číslo musí byť presne 10 znakov dlhé
+    </div>
+    <div *ngIf="f.id.errors?.pattern">
+      len číslice
+    </div>
+  </div>
+
+</div>
+
 
 <!-- <mat-form-field appearance="fill">
   <mat-label>Dátum narodenia</mat-label>
   <input matInput [matDatepicker]="picker">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
-</mat-form-field> 
--->
+</mat-form-field>  -->
 
-<p>
-  <mat-form-field appearance="fill">
-    <mat-label>Ulica</mat-label>
-    <input matInput>
-  </mat-form-field>
-</p>
-
-<p>
-  <mat-form-field appearance="fill">
-    <mat-label>Popisné čislo</mat-label>
-    <input matInput>
-  </mat-form-field>
-</p>
-
-<p>
-  <mat-form-field appearance="fill">
-    <mat-label>PSČ</mat-label>
-    <input matInput>
-    <mat-hint>PSČ zadajte bez medzery (formát XXXXX)</mat-hint>
-  </mat-form-field>
-</p>
-
-<p>
-  <mat-form-field appearance="fill">
-    <mat-label>Obec</mat-label>
-    <input matInput>
-  </mat-form-field>
-</p>
-
-<p>
+<div>
   <mat-form-field appearance="fill">
     <mat-label>Select</mat-label>
-    <mat-select>
+    <mat-select formControlName="sex">
+      <mat-option value="one">Muž</mat-option>
+      <mat-option value="two">Žena</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div *ngIf="f.sex.invalid && (f.sex.dirty || f.sex.touched)"
+  class="alert alert-danger">
+    <div *ngIf="f.sex.errors?.required">
+      *
+    </div>
+  </div>
+</div>
+
+
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Ulica</mat-label>
+    <input matInput formControlName="street">
+  </mat-form-field>
+  <div *ngIf="f.street.invalid && (f.street.dirty || f.street.touched)"
+  class="alert alert-danger">
+    <div *ngIf="f.street.errors?.required">
+      *
+    </div>
+  </div>
+</div>
+
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Popisné čislo</mat-label>
+    <input type="text" matInput formControlName="number">
+  </mat-form-field>
+  <div *ngIf="f.number.invalid && (f.number.dirty || f.number.touched)"
+  class="alert alert-danger">
+    <div *ngIf="f.number.errors?.required">
+      *
+    </div>
+    
+  </div>
+</div>
+
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>PSČ</mat-label>
+    <input matInput formControlName="postal">
+  </mat-form-field>
+  <div *ngIf="f.postal.invalid && (f.postal.dirty || f.postal.touched)"
+  class="alert alert-danger">
+    <div *ngIf="f.postal.errors?.required">
+      *
+    </div>
+    
+    <div *ngIf="f.postal.errors?.pattern">
+      len číslice
+    </div>
+    <div *ngIf="f.postal.errors?.minlength">
+      PSČ vo formáte XXXXX
+    </div>
+    <div *ngIf="f.postal.errors?.maxlength">
+      PSČ vo formáte XXXXX
+    </div>
+</div>
+</div>
+
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Obec</mat-label>
+    <input matInput formControlName="town">
+  </mat-form-field>
+  <div *ngIf="f.town.invalid && (f.town.dirty || f.town.touched)"
+  class="alert alert-danger">
+    <div *ngIf="f.town.errors?.required">
+      *
+    </div>
+  </div>
+</div>
+
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select formControlName="insurance">
       <mat-option value="one">VšZP</mat-option>
       <mat-option value="two">Dôvera</mat-option>
       <mat-option value="three">Union</mat-option>
@@ -93,21 +181,53 @@
       <mat-option value="five">Iné</mat-option>
     </mat-select>
   </mat-form-field>
-</p>
+  <div *ngIf="f.insurance.invalid && (f.insurance.dirty || f.insurance.touched)"
+  class="alert alert-danger">
+    <div *ngIf="f.insurance.errors?.required">
+      *
+    </div>
+  </div>
+</div>
 
-<p>
+<!-- pattern -->
+<div>  
   <mat-form-field appearance="fill">
     <mat-label>Telefón</mat-label>
-    <input matInput>
+    <input matInput formControlName="telephone">
   </mat-form-field>
-</p>
 
-<p>
+  <div *ngIf="f.telephone.invalid && (f.telephone.dirty || f.telephone.touched)"
+  class="alert alert-danger">
+    <div *ngIf="f.telephone.errors?.required">
+      *
+    </div>
+    <div *ngIf="f.telephone.errors?.pattern">
+      Zlý formát. Použite jeden z nasledovných
+      +XYZ XXXYYYZZZ
+      0XYZXXXYYY
+    </div>
+  </div>
+  
+</div>
+
+<div>
   <mat-form-field appearance="fill">
     <mat-label>Mail</mat-label>
-    <input matInput>
+    <input matInput formControlName="mail">
   </mat-form-field>
-</p>
-<p>
+
+  <div *ngIf="f.mail.invalid && (f.mail.dirty || f.mail.touched)"
+  class="alert alert-danger">
+    <div *ngIf="f.mail.errors?.required">
+      *
+    </div>
+    <div *ngIf="f.mail.errors?.email">
+      Zlý formát. Použijte X@Y.Z
+    </div>
+  </div>
+
+</div>
+<div>
   <button mat-raised-button color="primary">Odoslať</button>
-</p>
+</div>
+</form>
