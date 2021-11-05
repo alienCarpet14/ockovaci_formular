@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,10 @@ export class AppComponent {
 
   constructor(private formBuilder: FormBuilder) { }
 
+  onInput(){
+    console.log("input");
+  }
+
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
         name: ['',[
@@ -24,6 +29,7 @@ export class AppComponent {
         surname: ['',[
           Validators.required,
          Validators.minLength(2)]],
+        date: ['', Validators.required],
         id: ['', [
           Validators.required, 
           Validators.pattern("^[0-9]*$"),

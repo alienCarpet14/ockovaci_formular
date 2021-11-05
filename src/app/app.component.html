@@ -15,7 +15,16 @@
 </p>
 
 
+<!-- <mat-card fxLayout="row" fxLayout.xs="column">
+  <mat-card class="child-1">1. Children</mat-card> 
+  <mat-card class="child-2">2. Children</mat-card> 
+  <mat-card class="child-3">3. Children</mat-card>
+</mat-card> -->
+
+<!-- <div class="container">
+  <div class="flex-container" fxLayout="row" fxLayout.xs="column"> -->
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  
 <div>
   <mat-form-field appearance="fill">
     <mat-label>Meno</mat-label>
@@ -60,7 +69,7 @@
 <div>
   <mat-form-field appearance="fill">
     <mat-label>Rodné čislo</mat-label>
-    <input  matInput formControlName="id">
+    <input  matInput formControlName="id" (input)="onInput()">
   </mat-form-field>
 
   <div *ngIf="f.id.invalid && (f.id.dirty || f.id.touched)"
@@ -81,13 +90,15 @@
 
 </div>
 
-
-<!-- <mat-form-field appearance="fill">
+<mat-form-field appearance="fill">
   <mat-label>Dátum narodenia</mat-label>
   <input matInput [matDatepicker]="picker">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>  -->
+</mat-form-field> 
+
+
+
 
 <div>
   <mat-form-field appearance="fill">
